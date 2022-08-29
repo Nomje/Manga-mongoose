@@ -1,0 +1,2 @@
+//Manga Schema 
+//Review schema
