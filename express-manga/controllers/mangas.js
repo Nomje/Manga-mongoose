@@ -15,7 +15,7 @@ function newManga(req,res){
 
 function show(req,res){
     Manga.findById(req.params.id);
-    res.render('movies/show',{
+    res.render('mangas/show',{
         manga
     });
 }
@@ -27,7 +27,7 @@ function create (req,res){
     }
     const manga = new Manga(req.body);
     manga.save(function(err){
-        if(err) return res.redirect('/manga/new');
+        if(err) return res.redirect('/mangas/new');
         res.redirect(`/mangas/${manga._id}`);
     })
 }

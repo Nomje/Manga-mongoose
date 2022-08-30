@@ -1,6 +1,7 @@
 // user schema
 
 const mongoose = require('mongoose');
+const stringifyFunctionOperators = require('mongoose/lib/helpers/aggregate/stringifyFunctionOperators');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -10,6 +11,7 @@ const userSchema = new Schema({
         required: true
     },
     email: String,
+    avatar: String
 }, {
     timestamps: true
 });
