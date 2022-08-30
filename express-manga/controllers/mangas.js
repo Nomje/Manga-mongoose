@@ -5,7 +5,7 @@ const User = require('../models/user');
 
 function index(req,res){
     Manga.find({},function(err, mangas){
-        res.render('mangas/index',{title:'Manga Database', manga});
+        res.render('mangas/index',{title:'Manga Database', mangas});
     });
 }
 
