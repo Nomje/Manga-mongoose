@@ -19,7 +19,7 @@ function show(req,res){
     Manga.findById(req.params.id, function(err, manga){
         console.log(manga);
         console.log("#######");
-        res.render('mangas/show',{title: " All Mangas", mangas});
+        res.render('mangas/show',{title: " All Mangas", manga});
     });
 }
 
