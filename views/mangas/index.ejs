@@ -1,15 +1,22 @@
-<%- include('../partials/header') %>
-<table id="list">
+
+ <%- include('../partials/header') %>
+
+ <table id="list">
   <thead>
     <tr>
       <th>Title</th>
-      <th>Release<br>Year</th>
-      <th></th>
+      <th>Author:</th>
+      <th>Artist:</th>
+      <th>Link to read:</th>
+      <th>picture:</th>
     </tr>
   </thead>
   <tbody>
-      </tr>
-    </tbody>
-  </table>
-  
-<%- include('../partials/footer') %>
+    <% mangas.forEach(function(m) { %>
+      <tr>
+        <td><%= m.title %></td>
+        <% }); %>
+  </tbody>
+ </table>
+ <%- include('../partials/footer') %>
+ 

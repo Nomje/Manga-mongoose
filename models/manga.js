@@ -22,18 +22,22 @@ const mangaSchema = new Schema({
         type: String,
         required: true
     },
-    Author:{
+    author:{
         type: String,
         required: true
     },
-    Artist: String,
+    artist: String,
     linkToRead:{
         type: String,
         required: true
     },
     rating: Number,
     reviews: [reviewSchema],
-    users: Number
+    users: Number,
+    picture:{
+        type: String,
+        required: true
+    }
 },{
     timestamps:true
 });

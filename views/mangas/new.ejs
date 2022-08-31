@@ -1,20 +1,21 @@
-<%- include('../partials/header') %>
-
-<form id="new-form" action="/mangas" method="POST">
-  <label>Title:</label>
-  <input type="text" name="title">
-  <label>Release Year:</label>
-  <input type="text" name="releaseYear">
-  <label>MPAA Rating</label>
-  <select name="mpaaRating">
-    <option value="G">G</option>
-    <option value="PG">PG</option>
-    <option value="PG-13">PG-13</option>
-    <option value="R">R</option>
-  </select>
-  <label>Now Showing:</label>
-  <input type="checkbox" name="nowShowing" checked>
-  <input type="submit" value="Add Movie">
+<%- include('../partials/header')%>
+<h2>Add an Activity</h2>
+<form action="/mangas" method="POST">
+    <label>Title:
+        <input type="text" name="title"></input>
+    </label></br>
+    <label>Author:
+        <input type="text" name="author"></input>
+    </label></br>
+    <label>Artist:
+      <input type ="text" name="artist">
+    </label><br>
+    <label>Link to read:
+      <input type="text" name="linkToRead">
+    </label><br>
+    <label>Link for picture:
+      <input type="text" name="Picture">
+    </label></br>
+    <input type="submit" value="Add Manga">
 </form>
-
-<%- include('../partials/footer') %>
+<%- include('../partials/footer')%>

@@ -2,20 +2,15 @@
 
 <section id="show-page">
     <div>Title:</div>
-    <div><%= movie.title %></div>
+    <div><%= mangas.title %></div>
     <div>Release Year:</div>
-    <div><%= movie.releaseYear %></div>
+    <div><%= mangas.releaseYear %></div>
     <div>Rating:</div>
-    <div><%= movie.mpaaRating %></div>
+    <div><%= mangas.mpaaRating %></div>
     <div>Now Showing:</div>
-    <div><%= movie.nowShowing ? 'Yes' : 'Nope' %></div>
+    <div><%= mangas.nowShowing ? 'Yes' : 'Nope' %></div>
     <!-- start cast list -->
-    <div>Cast:</div>
-    <ul>
-        <%- movie.cast.map(p =>
-                `<li>${p.name} <small>${p.born.toLocaleDateString()}</small></li>`
-        ).join('') %>
-    </ul>
+   
     <!-- end cast list -->
 </section>
 <!-- add to cast form below this comment -->

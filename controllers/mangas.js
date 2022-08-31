@@ -1,35 +1,42 @@
+const { request } = require('express');
 const Manga = require('../models/manga');
-const User = require('../models/user');
 
 // functions 
 
-function index(req,res){
+function index(res){
     Manga.find({},function(err, mangas){
-        res.render('mangas/index',{title:'Manga Database', mangas});
-    });
+       // if (err) return res.redirect('/');
+        // res.render('mangas/index',{title:"Manga Database", mangas});
+        res.render('/');
+    })
 }
 
 function newManga(req,res){
-    res.render('mangas/new', {title: 'New Manga'});
+    res.render('mangas/new');
 }
 
 function show(req,res){
-    Manga.findById(req.params.id);
-    res.render('mangas/show',{
-        manga
+    Manga.findById(req.params.id, function(err, manga){
+        console.log(manga);
+        console.log("#######");
+        res.render('mangas/show',{title: " All Mangas", mangas});
     });
 }
 
-function create (req,res){
-    req.body.nowShowing = !!req.body.nowShowing;
-    for(let key in req.body){
-        if(req.body[key]==='')delete req.body[key];
-    }
+function createManga(req,res){
     const manga = new Manga(req.body);
+    console.log(manga);
     manga.save(function(err){
         if(err) return res.redirect('/mangas/new');
         res.redirect(`/mangas/${manga._id}`);
     })
+    // Manga.create({
+    //     title:req.body.title,
+    //     artist:req.body.artist,
+    //     author:req.body.author,
+    //     linkToRead:req.body.linkToRead
+    // });
+    // res.redirect("/mangas")
 }
 
 // end functions
@@ -38,5 +45,5 @@ module.exports = {
     new : newManga,
     index,
     show,
-    create
+    create: createManga
 }
