@@ -3,11 +3,11 @@ const Manga = require('../models/manga');
 
 // functions 
 
-function index(res){
+function index(req,res){
     Manga.find({},function(err, mangas){
        // if (err) return res.redirect('/');
-        // res.render('mangas/index',{title:"Manga Database", mangas});
-        res.render('/');
+     res.render('mangas/index',{title:"Manga Database", mangas});
+        
     })
 }
 
