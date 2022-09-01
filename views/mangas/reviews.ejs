@@ -2,4 +2,10 @@
 
 <h1>update your review</h1>
 
+<form action="/mangas/<%= manga.id %>" method="POST">
+    <label>Review:</label>
+    <textarea name="content"></textarea>
+    <input type="submit" value="New Review">
+</form>
+
 <%- include('../partials/footer')%>
