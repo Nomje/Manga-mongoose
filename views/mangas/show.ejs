@@ -1,5 +1,47 @@
 <%- include('../partials/header') %>
+<h1><%= manga.title %></h1>
+<img src = <%= manga.picture %>>
+<br>
+Author: <%= manga.author %>
+<br>
+Artist:<%= manga.artist %>
+<br>
+To Read:
+<a href="<%= manga.linkToRead %>"><%= manga.linkToRead %></a>
 
+<h2>Reviews</h2>
 
+<% if (user) { %>
+    <form action="/mangas/<%= manga.id %>/reviews" method="POST">
+        <label>Review:</label>
+        <textarea name="content"></textarea>
+        <input type="submit" value="Add a Review">
+    </form>
+<% } %>
+
+<%if (manga.reviews.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Date</th>
+                <th>Review</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% manga.reviews.forEach(function(a) { %>
+                <tr>
+                    <td><img src="<%= a.userAvatar %>"><%= a.userName %></td>
+                    <td><%= a.createdAt.toLocaleDateString() %></td>
+                    <td><%= a.content%></td>
+                    <td><a href="/<%= manga.id %>/reviews/edit">Edit</a></td>
+                </tr>
+<% })  %>
+        </tbody>
+    </table>
+<% } else { %>
+<h4>No Reviews Yet</h4>
+<% } %>
 
 <%- include('../partials/footer') %>

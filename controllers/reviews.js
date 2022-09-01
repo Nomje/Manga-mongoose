@@ -5,6 +5,9 @@ function create(req,res){
         req.body.user = req.user._id;
         req.body.username = req.body.name;
         req.body.userAvatar = req.body.avatar;
+        console.log(req.body.user);
+        console.log(req.body.name);
+        console.log(req.body.userAvatar);
         manga.reviews.push(req.body);
         manga.save (function(err){
             res.render(`/mangas/${manga._id}`);

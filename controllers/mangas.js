@@ -28,6 +28,8 @@ function createManga(req,res){
     //     if(err) return res.redirect('/mangas/new');
     //     res.redirect(`/mangas/${manga._id}`);
     // })
+
+    // need to add more info to schema and here
     Manga.create({
         title:req.body.title,
         artist:req.body.artist,
