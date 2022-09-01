@@ -31,7 +31,7 @@ function deleteReview(req,res,next){
 function getOne(req,res){
     Manga.findOne({'reviews._id':req.params.id}).then(function(manga){
         const review = manga.reviews.id(req.params.id);
-        res.render('reviews/edit', {title: 'Edidt Review', manga, review})
+        res.render('mangas/reviews', {title: 'Edidt Review', manga, review})
     }).catch(function (err){
         return next(err);
     });
