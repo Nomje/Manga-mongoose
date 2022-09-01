@@ -5,12 +5,11 @@ function create(req,res){
         req.body.user = req.user._id;
         req.body.username = req.body.name;
         req.body.userAvatar = req.body.avatar;
-        console.log(req.body.user);
-        console.log(req.body.name);
-        console.log(req.body.userAvatar);
         manga.reviews.push(req.body);
+        console.log(manga);
+        console.log(manga.reviews);
         manga.save (function(err){
-            res.render(`/mangas/${manga._id}`);
+            res.redirect(`/mangas/${manga._id}`);
         });
 
     });
@@ -30,7 +29,7 @@ function deleteReview(req,res,next){
 }
 
 function getOne(req,res){
-    Manga.findOne({'reviews._id:req.params.id'}).then(function(manga){
+    Manga.findOne({'reviews._id':req.params.id}).then(function(manga){
         const review = manga.reviews.id(req.params.id);
         res.render('reviews/edit', {title: 'Edidt Review', manga, review})
     }).catch(function (err){

@@ -35,7 +35,7 @@ function createManga(req,res){
         artist:req.body.artist,
         author:req.body.author,
         linkToRead:req.body.linkToRead,
-        picture:req.body.picture
+        picture:req.body.picture, 
     });
     res.redirect("/mangas")
 }
