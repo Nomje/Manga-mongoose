@@ -34,7 +34,13 @@ To Read:
                     <td><img src="<%= a.userAvatar %>"><%= a.userName %></td>
                     <td><%= a.createdAt.toLocaleDateString() %></td>
                     <td><%= a.content%></td>
-                    <td><a href="/<%= manga.id %>/reviews/edit">Edit</a></td>
+                    <td><a href="/reviews/edit">Edit</a></td>
+                    <% if (user && user._id.equals(a.user)) { %>
+                       <td> <form action="/reviews/<%= a._id %>?_method=DELETE" method="POST">
+                            <button type="submit">X</button>
+                        </form>
+                       </td>
+                    <% } %>
                 </tr>
 <% })  %>
         </tbody>
