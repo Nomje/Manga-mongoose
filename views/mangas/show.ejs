@@ -1,14 +1,15 @@
 <%- include('../partials/header') %>
 <h1><%= manga.title %></h1>
-<img src = <%= manga.picture %>>
+<img src = <%= manga.picture %> style="height:280px">
 <br>
+<blockquote>
 Author: <%= manga.author %>
 <br>
 Artist:<%= manga.artist %>
 <br>
 To Read:
 <a href="<%= manga.linkToRead %>"><%= manga.linkToRead %></a>
-
+</blockquote>
 <h2>Reviews</h2>
 
 <% if (user) { %>

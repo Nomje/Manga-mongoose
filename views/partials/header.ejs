@@ -9,15 +9,13 @@
 </head>
 <body>
 <nav>
-    <div class = "mangaicon">
-        <img src="https://i.imgur.com/UAAC842.png">
-    </div>
+        <img src="https://i.imgur.com/UAAC842.png" style="height:38px ">
     <a href="/mangas" <%-'All Mangas' ? 'class="active"' : '' %>>ALL Mangas</a>
     <% if (user) { %>
         <a href="/mangas/new" <%- 'Add Manga' ? 'class="active"' : '' %>>ADD Manga</a>
         <a href="/logout">LOG OUT</a>
     <% } else { %>
-        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" id ="goo"></a>
+        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png" style="height:40px"></a>
     <% } %>
 </nav>
 <main>

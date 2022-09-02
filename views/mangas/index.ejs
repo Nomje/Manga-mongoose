@@ -3,14 +3,14 @@
 
  <table id="list">
   <thead>
-      <th>Titles</th>
+      <th id="indexW">Mangas</th>
   </thead>
   <tbody>
     <% mangas.forEach(function(m) { %>
       <tr>
-        <td><%= m.title %></td>
-        <td><img src ="<%= m.picture %>"></td>
-        <td><a href ="/mangas/<%=m.id%>">Info</a></td>
+        <td id="indexTitile"><%= m.title %></td>
+        <td><img src ="<%= m.picture %>" style="height:200px"></td>
+        <td id="indexInfo"><a href ="/mangas/<%=m.id%>">Info</a></td>
         <% }); %>
   </tbody>
  </table>

@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
 a {
@@ -8,10 +9,40 @@ a {
 }
 
 nav {
-  color: #f72f85;
+  background-color: #390741;
+  height: 50px;
+  text-align: center;
+  font-size: 40px;
+  overflow: hidden;
+  padding :10px;
+}
+table{
+  margin-left: auto;
+  margin-right: auto;
+  border: #390741;
+  border: 5px;
+  
 }
 
-.mangaicon{
-  max-height: fit-content;
-  
+#indexW{
+  font-size: 40px;
+
+}
+
+#indexTitile{
+  font-size: 40px;
+}
+
+#indexInfo{
+  font-size: 40px;
+}
+
+table,thead,tbody{
+  border: #390741;
+  border: 5px;
+}
+
+td{
+  padding-left: 20px;
+  padding-right: 20px;
 }

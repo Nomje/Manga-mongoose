@@ -13,44 +13,40 @@
 
 > Here we have the homepage were the user can see the collection as of now.
 
-**add image**
-
+**Home page**![](https://i.imgur.com/H5XKrxJ.png)
 
 ## Login to Gmail and Logout
 
 >To do any thing other than read the database you will have to login into your gmail. If you are logged in you will have the option to logout as well. 
 
-**add image**
+
+**Google Login**![](https://i.imgur.com/VDvfxYC.png)
+
 
 
 ## Add a Manga
 
 >For now the user has the ability to add a manga if he ore she could not find it in the collection
-
-**add image**
+**Add a Manga **![](https://i.imgur.com/84BEOJG.png)
 
 
 ## Manga Info Page
 > A webpage were the user is given some information about the Manga like the author and a place to read with a review section for the users.
 
-**add image**
+**Info Page**![](https://i.imgur.com/TFy5haL.png)
 
 
 ## Review 
 
 > The ability to leave a review/ a comment so that other users might be tempted to read the Manga.
 
-**add image**
+**Google Login**![](https://i.imgur.com/aUhNVV5.png)
 
 
 ## Edit a review 
 
 >User is able to edit a previous review/ comment left 
-
-**add image**
-
-
-
+**Edit a review**![](https://i.imgur.com/qW4N5Zz.png)
 # Technologies Used
 
 >Mongoose / MongoDB, Express, Node.js, Html, and Ejs
@@ -77,3 +73,10 @@
 ## Be the Weeb you wanna be
 
 > https://mangabase.herokuapp.com/mangas
+
+
+
+
+
+
+
