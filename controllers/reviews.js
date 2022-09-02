@@ -1,3 +1,5 @@
+const { query } = require('express');
+const { mongo } = require('mongoose');
 const Manga = require('../models/manga');
 const Review = require('../models/manga');
 
@@ -28,8 +30,11 @@ function deleteReview(req,res,next){
 }
 
 function getOne(req,res,next){
+    console.log(req.query,"this is req.query")
     Manga.findOne({'reviews._id':req.params.id}).then(function(manga){
         const review = manga.reviews.id(req.params.id);
+        
+        
         res.render('mangas/reviews', {title: 'Edidt Review', manga, review})
     }).catch(function (err){
         return next(err);
@@ -52,9 +57,8 @@ function update(req,res, next){
     //     });
     // });
 
-    Manga.findByIdAndUpdate(req.params.id, req.body,{new:true}, function(err, manga){
-        console.log(manga);
-        console.log(req.body,"this is req.body");
+    Manga.findOneAndUpdate({_id:req.params.id}, req.body,{new:true}, function(err, manga){
+        manga.save()
         res.redirect(`/mangas/${manga.id}`);
     });
 
