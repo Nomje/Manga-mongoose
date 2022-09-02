@@ -37,7 +37,7 @@ To Read:
                     <td><%= a.content%></td>
                     <td>
                         <% if (user && user._id.equals(a.user)) { %>
-                        <form action="/mangas/<%=a.id%>/edit" method="GET">
+                        <form action="/mangas/<%=a.id%>/review/<%=a.id%>/edit" method="GET">
                             <button type="submit">Edit</button>
                         </form>   
                         <% } %>

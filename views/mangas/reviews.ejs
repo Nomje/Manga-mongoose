@@ -2,7 +2,9 @@
 
 <h1>update your review</h1>
 
-<form action="/mangas/<%= manga.id %>/update?_method=PUT" method="POST">
+<form action="/mangas/<%= manga.id %>/review/<%= review.id %>/update?_method=PUT" method="POST">
+    <input type="hidden" class="form-control" name="hiddenMangaId" value="<%= manga.id %>">
+    <input type="hidden" class="form-control" name="hiddenReviewId" value="<%= review.id %>">
     <label>Review:</label>
     <textarea name="content"></textarea>
     <input type="submit" value="New Review">

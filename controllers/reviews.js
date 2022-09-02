@@ -45,32 +45,46 @@ function getOne(req,res,next){
 // });
 
 }
-
 function update(req,res, next){
-    // Manga.findOne({'reviews._id' : req.params.id}).then(function(manga){
-    //     const review = manga.reviews.id(req.params.id);
-    //     review.body = req.body.review;
-    //     manga.save().then(function (){
-    //         res.direct(`/mangas/${review._id}/edit`);
-    //     }).catch(function(err){
-    //         return next (err);
-    //     });
-    // });
-    const filter = {_id: req.params.id} ;
-    const update = {
-    "content": req.body.content
-    }
-    Manga.findByIdAndUpdate( filter, update, {new:true}, function (err, manga){
-    // Manga.findOneAndUpdate({_id:req.params.id},{"content":req.body.content},{new:true}, function(err, manga){
-    console.log(update,"this is the content");   
-    if(err){
-            console.log(err, "this is the errror")
+    Review.updateOne(
+        { _id: req.body.hiddenMangaId, 
+            "reviews._id": req.body.hiddenReviewId },
+        {
+            $set: {
+                "reviews.$.content": req.body.content,
+             }
+        },function(error, ress){
+            return res.redirect('/');
         }
-        console.log(manga);
-        res.redirect(`/mangas/${manga.id}`);
-    });
-
+    )
 }
+
+// function update(req,res, next){
+//     // Manga.findOne({'reviews._id' : req.params.id}).then(function(manga){
+//     //     const review = manga.reviews.id(req.params.id);
+//     //     review.body = req.body.review;
+//     //     manga.save().then(function (){
+//     //         res.direct(`/mangas/${review._id}/edit`);
+//     //     }).catch(function(err){
+//     //         return next (err);
+//     //     });
+//     // });
+//     const filter = {_id: req.params.id} ;
+//     const update = {
+//     "content": req.body.content
+//     }
+//     Manga.findByIdAndUpdate( filter, update, {new:true}, function (err, manga){
+//     // Manga.findOneAndUpdate({_id:req.params.id},{"content":req.body.content},{new:true}, function(err, manga){
+//     console.log(update,"this is the content");   
+//     if(err){
+//             console.log(err, "this is the errror")
+//         }
+//         console.log(manga);
+//         res.redirect(`/mangas/${manga.id}`);
+//     });
+
+// }
+
 
 module.exports = {
     create,
