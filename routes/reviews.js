@@ -6,6 +6,6 @@ const reviewCtrl = require('../controllers/reviews');
 router.post("/mangas/:id/reviews", reviewCtrl.create);
 router.delete("/reviews/:id", reviewCtrl.delete);
 router.get('/mangas/:id/edit', reviewCtrl.edit);
-router.post('/:id',reviewCtrl.update)
+router.put('/mangas/:id/update',reviewCtrl.update)
 
 module.exports = router;

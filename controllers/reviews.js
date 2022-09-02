@@ -1,4 +1,5 @@
 const Manga = require('../models/manga');
+const Review = require('../models/manga');
 
 function create(req,res){
     Manga.findById(req.params.id, function(err,manga){
@@ -6,8 +7,6 @@ function create(req,res){
         req.body.username = req.body.name;
         req.body.userAvatar = req.body.avatar;
         manga.reviews.push(req.body);
-        console.log(manga);
-        console.log(manga.reviews);
         manga.save (function(err){
             res.redirect(`/mangas/${manga._id}`);
         });
@@ -28,25 +27,37 @@ function deleteReview(req,res,next){
     })
 }
 
-function getOne(req,res){
+function getOne(req,res,next){
     Manga.findOne({'reviews._id':req.params.id}).then(function(manga){
         const review = manga.reviews.id(req.params.id);
         res.render('mangas/reviews', {title: 'Edidt Review', manga, review})
     }).catch(function (err){
         return next(err);
     });
+
+// Manga.findOne({'review':req.review}, function (err, review){
+//     res.render('mangas/reviews',review)
+// });
+
 }
 
 function update(req,res, next){
-    Manga.findOne({'reviews._id' : req.params.id}).then(function(manga){
-        const review = manga.reviews.id(req.params.id);
-        review.body = req.body.review;
-        manga.save().then(function (){
-            res.direct(`/mangas/${review._id}/edit`);
-        }).catch(function(err){
-            return next (err);
-        });
+    // Manga.findOne({'reviews._id' : req.params.id}).then(function(manga){
+    //     const review = manga.reviews.id(req.params.id);
+    //     review.body = req.body.review;
+    //     manga.save().then(function (){
+    //         res.direct(`/mangas/${review._id}/edit`);
+    //     }).catch(function(err){
+    //         return next (err);
+    //     });
+    // });
+
+    Manga.findByIdAndUpdate(req.params.id, req.body,{new:true}, function(err, manga){
+        console.log(manga);
+        console.log(req.body,"this is req.body");
+        res.redirect(`/mangas/${manga.id}`);
     });
+
 }
 
 module.exports = {
