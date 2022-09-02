@@ -16,7 +16,6 @@ function newManga(req,res){
 
 function show(req, res) { //more details on each activity
     Manga.findById(req.params.id, function (err, manga){
-        console.log(manga)
         res.render('mangas/show', {title: 'Details', manga})
     })
 }

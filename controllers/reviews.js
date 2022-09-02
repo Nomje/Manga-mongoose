@@ -56,9 +56,18 @@ function update(req,res, next){
     //         return next (err);
     //     });
     // });
-
-    Manga.findOneAndUpdate({_id:req.params.id}, req.body,{new:true}, function(err, manga){
-        manga.save()
+    const filter = {_id: req.params.id} ;
+    const update = {
+    "content": req.body.content
+    }
+    Manga.findByIdAndUpdate( filter, update, {new:true}, function (err, manga){
+    // Manga.findOneAndUpdate({_id:req.params.id},{"content":req.body.content},{new:true}, function(err, manga){
+    console.log(update,"this is the content");   
+    if(err){
+            console.log(err, "this is the errror")
+        }
+        console.log(manga);
+        manga.save()  
         res.redirect(`/mangas/${manga.id}`);
     });
 
