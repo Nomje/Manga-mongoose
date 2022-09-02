@@ -67,7 +67,6 @@ function update(req,res, next){
             console.log(err, "this is the errror")
         }
         console.log(manga);
-        manga.save()  
         res.redirect(`/mangas/${manga.id}`);
     });
 

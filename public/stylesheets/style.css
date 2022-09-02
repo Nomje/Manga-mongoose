@@ -7,4 +7,11 @@ a {
   color: #00B7FF;
 }
 
+nav {
+  color: #f72f85;
+}
 
+.mangaicon{
+  max-height: fit-content;
+  
+}
