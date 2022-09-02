@@ -1,5 +1,3 @@
-//Manga Schema 
-//Review schema
 
 
 const mongoose = require('mongoose');

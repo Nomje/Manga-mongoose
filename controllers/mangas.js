@@ -4,7 +4,6 @@ const Manga = require('../models/manga');
 
 function index(req,res){
     Manga.find({},function(err, mangas){
-       // if (err) return res.redirect('/');
      res.render('mangas/index',{title:"Manga Database", mangas});
         
     })
@@ -14,21 +13,14 @@ function newManga(req,res){
     res.render('mangas/new');
 }
 
-function show(req, res) { //more details on each activity
+function show(req, res) { 
     Manga.findById(req.params.id, function (err, manga){
         res.render('mangas/show', {title: 'Details', manga})
     })
 }
 
 function createManga(req,res){
-    // const manga = new Manga(req.body);
-    // console.log(manga);
-    // manga.save(function(err){
-    //     if(err) return res.redirect('/mangas/new');
-    //     res.redirect(`/mangas/${manga._id}`);
-    // })
 
-    // need to add more info to schema and here
     Manga.create({
         title:req.body.title,
         artist:req.body.artist,
