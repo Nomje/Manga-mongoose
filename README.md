@@ -40,7 +40,7 @@
 
 > The ability to leave a review/ a comment so that other users might be tempted to read the Manga.
 
-**Google Login**![](https://i.imgur.com/aUhNVV5.png)
+**Leave a review**![](https://i.imgur.com/aUhNVV5.png)
 
 
 ## Edit a review 
